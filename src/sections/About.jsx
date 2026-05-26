@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { MapPin, Mail, ArrowUpRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+
+const WA_LINK =
+  "https://wa.me/919187082916?text=Hi%20Sawan%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project%20with%20you.";
 
 const highlights = [
   { value: "3",    label: "Internships" },
@@ -13,6 +17,7 @@ const highlights = [
 const focus = [
   { icon: "⚡", title: "Full Stack Dev",  desc: "React, Next.js, Node.js, Spring Boot — end-to-end." },
   { icon: "🤖", title: "AI Engineering", desc: "RAG pipelines, vector search, LLM integration with LangChain & FAISS." },
+  { icon: "🧑‍💻", title: "Freelancer",     desc: "Available for freelance projects — web apps, APIs, AI tools." },
   { icon: "☁️", title: "Cloud & DevOps", desc: "AWS (EC2, S3), Docker, CI/CD — scalable deployments." },
 ];
 
@@ -88,7 +93,7 @@ export default function About() {
             {/* Headline bio — short & punchy */}
             <div className="flex flex-col gap-3">
               <h3 className="text-xl lg:text-2xl font-bold text-slate-900">
-                Full Stack &amp; AI Engineer
+                Full Stack &amp; AI Engineer · Freelancer
               </h3>
               <p className="text-[15px] text-slate-600 leading-relaxed">
                 I build scalable backend systems and LLM-powered applications — from REST APIs and
@@ -97,7 +102,7 @@ export default function About() {
               </p>
               <p className="text-[15px] text-slate-600 leading-relaxed">
                 Currently based in <strong className="text-slate-800">Bengaluru</strong>, open to
-                full-time roles and freelance projects.
+                full-time roles and <strong className="text-slate-800">freelance projects</strong>.
               </p>
             </div>
 
@@ -123,7 +128,7 @@ export default function About() {
             </div>
 
             {/* Contact row */}
-            <div className="flex flex-wrap gap-4 text-[13px] text-slate-500 pt-1">
+            <div className="flex flex-wrap gap-3 text-[13px] text-slate-500 pt-1">
               <a href="mailto:sawankushwaha249@gmail.com"
                 className="flex items-center gap-1.5 hover:text-sky-600 transition-colors"
               >
@@ -134,6 +139,15 @@ export default function About() {
                 <MapPin size={13} className="text-sky-500" />
                 Bengaluru, Karnataka
               </span>
+              {/* WhatsApp quick contact */}
+              <Link
+                to={WA_LINK}
+                target="_blank"
+                className="flex items-center gap-1.5 font-semibold text-emerald-600 hover:text-emerald-700 transition-colors"
+              >
+                <FaWhatsapp size={14} />
+                WhatsApp me
+              </Link>
             </div>
           </motion.div>
         </div>
