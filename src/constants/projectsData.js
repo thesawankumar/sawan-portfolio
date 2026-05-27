@@ -39,4 +39,15 @@ export const data = [
     github: "https://github.com/thesawankumar",
     featured: false,
   },
+  {
+    id: 5,
+    label: "Castlewood Gym",
+    imgSrc: "/assets/projects/castlewood-gym.png",
+    desc: "Freelance project — modern gym & fitness website with membership plans, trainer profiles, class schedule, and WhatsApp contact integration.",
+    tags: ["React", "Tailwind CSS", "Netlify"],
+    view: "https://mellifluous-smakager-51b669.netlify.app",
+    github: "https://github.com/thesawankumar",
+    featured: false,
+    freelance: true,
+  },
 ];

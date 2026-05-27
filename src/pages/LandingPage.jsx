@@ -3,6 +3,7 @@ import About from "../sections/About";
 import Skills from "../sections/Skills";
 import Education from "../sections/Education";
 import Projects from "../sections/Projects";
+import Reviews from "../sections/Reviews";
 import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 
@@ -13,10 +14,7 @@ import Experience from "../sections/Experience";
 const LandingPage = () => {
   return (
     <>
-      {/* Smooth scrolling to anchors */}
       <ScrollToAnchor />
-
-      {/* Main Sections */}
       <main className="overflow-x-hidden pb-20 lg:pb-0">
         <Home />
         <About />
@@ -24,10 +22,9 @@ const LandingPage = () => {
         <Education />
         <Experience />
         <Projects />
+        <Reviews />
         <Contact />
       </main>
-
-      {/* Footer & Mobile Navigation */}
       <Footer />
       <MobileNavbar />
     </>

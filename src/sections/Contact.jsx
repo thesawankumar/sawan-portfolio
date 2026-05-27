@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, MapPin, ArrowUpRight, Clock, CheckCircle2, Send, ChevronDown, ChevronUp } from "lucide-react";
-import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa6";
+import { Mail, MapPin, ArrowUpRight, Clock, Send, ChevronDown, ChevronUp } from "lucide-react";
+import { FaWhatsapp, FaLinkedinIn, FaGithub } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
-import { Link } from "react-router-dom";
 
 const WA_LINK =
   "https://wa.me/919187082916?text=Hi%20Sawan%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project%20with%20you.";

@@ -224,7 +224,14 @@ function ProjectCard({ item, index }) {
           <div className="flex flex-col gap-2 p-4 flex-1">
             {/* Title row */}
             <div className="flex items-start justify-between gap-2">
-              <h3 className="text-sm font-bold text-slate-900 leading-snug">{item.label}</h3>
+              <div className="flex items-center gap-2 flex-wrap">
+                <h3 className="text-sm font-bold text-slate-900 leading-snug">{item.label}</h3>
+                {item.freelance && (
+                  <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-1.5 py-0.5 rounded-full">
+                    Freelance
+                  </span>
+                )}
+              </div>
               <motion.div
                 animate={{ rotate: hovered ? 45 : 0, color: hovered ? "#0ea5e9" : "#94a3b8" }}
                 transition={{ duration: 0.2 }}
