@@ -1,21 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import HomeOutlinedIcon       from "@mui/icons-material/HomeOutlined";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import LaptopOutlinedIcon     from "@mui/icons-material/LaptopOutlined";
-import SchoolOutlinedIcon     from "@mui/icons-material/SchoolOutlined";
-import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
-import CodeOutlinedIcon       from "@mui/icons-material/CodeOutlined";
-import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
+import { Home, User, Layers, GraduationCap, Briefcase, Code2, Mail } from "lucide-react";
+
+// Replaced MUI icons with lucide-react — saves ~200KB from bundle
 
 const NAV = [
-  { id: "home",       icon: <HomeOutlinedIcon sx={{ fontSize: 20 }} />,          label: "Home" },
-  { id: "about",      icon: <PersonOutlineOutlinedIcon sx={{ fontSize: 20 }} />, label: "About" },
-  { id: "skills",     icon: <LaptopOutlinedIcon sx={{ fontSize: 20 }} />,        label: "Skills" },
-  { id: "education",  icon: <SchoolOutlinedIcon sx={{ fontSize: 20 }} />,        label: "Edu" },
-  { id: "experience", icon: <WorkOutlineOutlinedIcon sx={{ fontSize: 20 }} />,   label: "Exp" },
-  { id: "projects",   icon: <CodeOutlinedIcon sx={{ fontSize: 20 }} />,          label: "Work" },
-  { id: "contact",    icon: <ContactMailOutlinedIcon sx={{ fontSize: 20 }} />,   label: "Contact" },
+  { id: "home",       icon: <Home size={18} />,         label: "Home" },
+  { id: "about",      icon: <User size={18} />,         label: "About" },
+  { id: "skills",     icon: <Layers size={18} />,       label: "Skills" },
+  { id: "education",  icon: <GraduationCap size={18} />,label: "Edu" },
+  { id: "experience", icon: <Briefcase size={18} />,    label: "Exp" },
+  { id: "projects",   icon: <Code2 size={18} />,        label: "Work" },
+  { id: "contact",    icon: <Mail size={18} />,         label: "Contact" },
 ];
 
 export default function MobileNavbar() {
@@ -28,7 +24,7 @@ export default function MobileNavbar() {
         if (el && window.scrollY >= el.offsetTop - 100) { setActive(NAV[i].id); break; }
       }
     };
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -46,7 +42,7 @@ export default function MobileNavbar() {
               key={item.id}
               href={`#${item.id}`}
               aria-label={item.label}
-              className="relative flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl group"
+              className="relative flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl"
             >
               {on && (
                 <motion.span

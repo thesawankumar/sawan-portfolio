@@ -139,7 +139,16 @@ export default function Hero() {
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           className="relative z-10 w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-white shadow-xl shadow-sky-100"
         >
-          <img src="/assets/profile.png" alt="Sawan Kumar" className="w-full h-full object-cover" />
+          <img
+            src="/assets/profile.png"
+            alt="Sawan Kumar — Full Stack & AI Engineer"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            width="256"
+            height="256"
+            className="w-full h-full object-cover"
+          />
         </motion.div>
 
         {/* Stat chips */}

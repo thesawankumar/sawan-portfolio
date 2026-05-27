@@ -45,7 +45,15 @@ export default function About() {
           >
             <div className="relative">
               <div className="w-52 h-52 lg:w-60 lg:h-60 rounded-3xl overflow-hidden shadow-lg border border-slate-100">
-                <img src="/assets/profile.png" alt="Sawan Kumar" className="w-full h-full object-cover" />
+              <img
+                src="/assets/profile.png"
+                alt="Sawan Kumar"
+                loading="lazy"
+                decoding="async"
+                width="240"
+                height="240"
+                className="w-full h-full object-cover"
+              />
               </div>
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-white border border-slate-200 shadow-md rounded-full px-4 py-1.5 whitespace-nowrap">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
