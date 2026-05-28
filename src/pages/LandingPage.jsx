@@ -4,9 +4,9 @@ import Skills from "../sections/Skills";
 import Education from "../sections/Education";
 import Projects from "../sections/Projects";
 import Reviews from "../sections/Reviews";
+import Quote from "../sections/Quote";
 import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
-
 import ScrollToAnchor from "../components/ScrollToAnchor";
 import MobileNavbar from "../components/MobileNavbar";
 import Experience from "../sections/Experience";
@@ -23,6 +23,7 @@ const LandingPage = () => {
         <Experience />
         <Projects />
         <Reviews />
+        <Quote />
         <Contact />
       </main>
       <Footer />
