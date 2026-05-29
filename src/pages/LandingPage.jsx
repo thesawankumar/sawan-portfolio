@@ -9,6 +9,7 @@ import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 import ScrollToAnchor from "../components/ScrollToAnchor";
 import MobileNavbar from "../components/MobileNavbar";
+import WhatsAppFloat from "../components/WhatsAppFloat";
 import Experience from "../sections/Experience";
 
 const LandingPage = () => {
@@ -28,6 +29,8 @@ const LandingPage = () => {
       </main>
       <Footer />
       <MobileNavbar />
+      {/* Floating WhatsApp bot button — always visible */}
+      <WhatsAppFloat />
     </>
   );
 };

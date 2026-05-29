@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { WA } from "../constants/whatsapp";
 
 const reviews = [
   {

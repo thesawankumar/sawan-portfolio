@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { MapPin, Mail, ArrowUpRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { WA } from "../constants/whatsapp";
 
-const WA_LINK =
-  "https://wa.me/919187082916?text=Hi%20Sawan%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project%20with%20you.";
+const WA_LINK = WA.about;
 
 const highlights = [
   { value: "3",    label: "Internships" },
@@ -13,12 +13,12 @@ const highlights = [
   { value: "7.87", label: "CGPA"        },
 ];
 
-// What I do — concise, scannable
+// What I do — matches bot services exactly
 const focus = [
-  { icon: "⚡", title: "Full Stack Dev",  desc: "React, Next.js, Node.js, Spring Boot — end-to-end." },
-  { icon: "🤖", title: "AI Engineering", desc: "RAG pipelines, vector search, LLM integration with LangChain & FAISS." },
-  { icon: "🧑‍💻", title: "Freelancer",     desc: "Available for freelance projects — web apps, APIs, AI tools." },
-  { icon: "☁️", title: "Cloud & DevOps", desc: "AWS (EC2, S3), Docker, CI/CD — scalable deployments." },
+  { icon: "🌐", title: "Website Development",  desc: "React, Next.js, Node.js, Spring Boot — landing pages to full web apps." },
+  { icon: "💬", title: "WhatsApp Automation",  desc: "24/7 bots with auto-reply, lead capture & owner notifications." },
+  { icon: "🤖", title: "AI Engineering",       desc: "RAG pipelines, LLM chatbots, vector search with LangChain & FAISS." },
+  { icon: "⚙️", title: "Full Stack Apps",      desc: "End-to-end product development — idea to cloud deployment." },
 ];
 
 export default function About() {

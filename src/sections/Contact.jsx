@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Mail, MapPin, ArrowUpRight, Clock, Send, ChevronDown, ChevronUp } from "lucide-react";
 import { FaWhatsapp, FaLinkedinIn, FaGithub } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
+import { WA } from "../constants/whatsapp";
 
-const WA_LINK =
-  "https://wa.me/919187082916?text=Hi%20Sawan%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project%20with%20you.";
+const WA_LINK = WA.contact;
 
 /* ── Contact channels ── */
 const channels = [
@@ -54,10 +54,10 @@ const channels = [
 
 /* ── Services I offer ── */
 const services = [
-  { emoji: "🌐", title: "Web Applications",   desc: "Full-stack apps with React, Next.js, Node.js, Spring Boot" },
-  { emoji: "🤖", title: "AI / LLM Tools",     desc: "RAG pipelines, chatbots, vector search, LangChain integrations" },
-  { emoji: "🔌", title: "REST APIs",           desc: "Scalable backend APIs with auth, DB design, cloud deployment" },
-  { emoji: "☁️", title: "Cloud & DevOps",     desc: "AWS (EC2, S3), Docker, CI/CD pipelines" },
+  { emoji: "🌐", title: "Website Development",   desc: "Landing pages, business sites, full web apps — React, Next.js, Node.js" },
+  { emoji: "💬", title: "WhatsApp Bot",           desc: "24/7 auto-reply, lead capture, menu flows, owner notifications" },
+  { emoji: "🤖", title: "AI / LLM Tools",         desc: "RAG pipelines, AI chatbots, resume analyzers, LangChain + FAISS" },
+  { emoji: "⚙️", title: "Full Stack App",         desc: "End-to-end product development — idea to deployment on cloud" },
 ];
 
 /* ── Quick message form (mailto — no backend needed) ── */

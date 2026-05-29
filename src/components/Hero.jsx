@@ -3,9 +3,9 @@ import { Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
+import { WA } from "../constants/whatsapp";
 
-const WA_LINK =
-  "https://wa.me/919187082916?text=Hi%20Sawan%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project%20with%20you.";
+const WA_LINK = WA.hire;
 
 const socials = [
   { href: "https://www.linkedin.com/in/thesawankumar/", icon: <FaLinkedinIn size={15} />, label: "LinkedIn" },
