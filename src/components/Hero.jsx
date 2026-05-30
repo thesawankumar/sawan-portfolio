@@ -1,5 +1,5 @@
 import { FaLinkedinIn, FaGithub, FaTwitter, FaWhatsapp } from "react-icons/fa6";
-import { Download } from "lucide-react";
+import { Download, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
@@ -13,6 +13,14 @@ const socials = [
   { href: "https://twitter.com/thesawan_kumar",         icon: <FaTwitter size={15} />,    label: "Twitter" },
 ];
 
+// What clients actually care about — plain language
+const clientWins = [
+  "🌐 Website for your business",
+  "💬 WhatsApp bot that replies 24/7",
+  "🤖 AI tools that save you time",
+  "⚙️ Apps built from scratch",
+];
+
 const stagger = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1 } },
@@ -24,10 +32,17 @@ const fadeUp = {
 
 export default function Hero() {
   const [text] = useTypewriter({
-    words: ["Full Stack Developer", "AI Engineer", "Freelancer", "React & Node.js", "Problem Solver"],
+    // Recruiter-friendly + client-friendly mix
+    words: [
+      "I build websites for businesses",
+      "WhatsApp bots that work 24/7",
+      "Apps from idea to launch",
+      "AI tools for your workflow",
+      "Full Stack Developer",
+    ],
     loop: 0,
-    typeSpeed: 65,
-    deleteSpeed: 35,
+    typeSpeed: 55,
+    deleteSpeed: 30,
   });
 
   return (
@@ -40,15 +55,15 @@ export default function Hero() {
         animate="show"
         className="flex flex-col gap-5 items-center lg:items-start text-center lg:text-left flex-1"
       >
-        {/* Availability badges row */}
+        {/* Status badges */}
         <motion.div variants={fadeUp} className="flex flex-wrap gap-2 justify-center lg:justify-start">
           <div className="flex items-center gap-2 text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            Open to Work
+            Available for Projects
           </div>
           <div className="flex items-center gap-2 text-xs font-semibold text-sky-700 bg-sky-50 border border-sky-200 px-3.5 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse" />
-            Available for Freelance
+            Open to Full-time Roles
           </div>
         </motion.div>
 
@@ -60,45 +75,55 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        {/* Typewriter */}
-        <motion.p variants={fadeUp} className="text-lg lg:text-xl font-semibold text-slate-500 min-h-[1.75rem]">
+        {/* Typewriter — plain language both audiences understand */}
+        <motion.p variants={fadeUp} className="text-lg lg:text-xl font-semibold text-slate-600 min-h-[1.75rem]">
           <span className="text-sky-600">{text}</span>
           <Cursor cursorColor="#0ea5e9" />
         </motion.p>
 
-        {/* Bio */}
-        <motion.p variants={fadeUp} className="text-sm lg:text-base text-slate-500 max-w-md leading-relaxed">
-          Building scalable backend systems &amp; LLM-powered apps.
-          React · Node.js · Spring Boot · LangChain · AWS
+        {/* One-liner — client understands, recruiter respects */}
+        <motion.p variants={fadeUp} className="text-sm lg:text-[15px] text-slate-500 max-w-md leading-relaxed">
+          I help businesses get online — websites, WhatsApp bots, AI tools &amp; full apps.
+          <span className="text-slate-400"> · 3 internships · 5+ projects delivered</span>
         </motion.p>
 
-        {/* CTAs */}
+        {/* What I build — scannable for clients */}
+        <motion.div variants={fadeUp} className="flex flex-wrap gap-2 justify-center lg:justify-start">
+          {clientWins.map((w, i) => (
+            <span key={i} className="text-[11px] font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-lg">
+              {w}
+            </span>
+          ))}
+        </motion.div>
+
+        {/* CTAs — two clear paths */}
         <motion.div variants={fadeUp} className="flex flex-wrap gap-3 justify-center lg:justify-start">
+          {/* Client CTA — most prominent */}
+          <Link to={WA_LINK} target="_blank">
+            <motion.button
+              whileHover={{ scale: 1.04, y: -1 }} whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md"
+            >
+              <FaWhatsapp size={16} /> Get a Free Quote
+            </motion.button>
+          </Link>
+
+          {/* Recruiter CTA */}
           <Link to="/assets/Sawan-Kumar-Resume.pdf" target="_blank">
             <motion.button
               whileHover={{ scale: 1.04, y: -1 }} whileTap={{ scale: 0.97 }}
               className="btn-primary"
             >
-              <Download size={15} /> Resume
+              <Download size={15} /> View Resume
             </motion.button>
           </Link>
 
-          {/* WhatsApp CTA — primary freelance contact */}
-          <Link to={WA_LINK} target="_blank">
-            <motion.button
-              whileHover={{ scale: 1.04, y: -1 }} whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md"
-            >
-              <FaWhatsapp size={16} /> Hire Me
-            </motion.button>
-          </Link>
-
-          <a href="#contact">
+          <a href="#projects">
             <motion.button
               whileHover={{ scale: 1.04, y: -1 }} whileTap={{ scale: 0.97 }}
               className="btn-ghost"
             >
-              Contact
+              See My Work <ArrowRight size={14} />
             </motion.button>
           </a>
         </motion.div>
@@ -141,7 +166,7 @@ export default function Hero() {
         >
           <img
             src="/assets/profile.png"
-            alt="Sawan Kumar — Full Stack & AI Engineer"
+            alt="Sawan Kumar — Web Developer & Freelancer"
             fetchpriority="high"
             loading="eager"
             decoding="async"
@@ -151,26 +176,26 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* Stat chips */}
+        {/* Floating chips — client language */}
         <motion.div
           initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.9 }}
-          className="absolute right-0 lg:-right-4 top-6 bg-white border border-slate-100 shadow-md rounded-xl px-3 py-2 flex items-center gap-2"
+          className="absolute right-0 lg:-right-6 top-6 bg-white border border-slate-100 shadow-md rounded-xl px-3 py-2 flex items-center gap-2"
         >
-          <span className="text-base">💼</span>
+          <span className="text-base">🚀</span>
           <div className="leading-tight">
-            <p className="text-xs font-bold text-slate-800">3 Internships</p>
-            <p className="text-[10px] text-slate-400">Work Experience</p>
+            <p className="text-xs font-bold text-slate-800">5+ Projects</p>
+            <p className="text-[10px] text-slate-400">Delivered</p>
           </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.1 }}
-          className="absolute left-0 lg:-left-4 bottom-6 bg-white border border-slate-100 shadow-md rounded-xl px-3 py-2 flex items-center gap-2"
+          className="absolute left-0 lg:-left-6 bottom-6 bg-white border border-slate-100 shadow-md rounded-xl px-3 py-2 flex items-center gap-2"
         >
           <FaWhatsapp size={14} className="text-emerald-500" />
           <div className="leading-tight">
-            <p className="text-xs font-bold text-slate-800">Freelancer</p>
-            <p className="text-[10px] text-slate-400">Available Now</p>
+            <p className="text-xs font-bold text-slate-800">Reply in Hours</p>
+            <p className="text-[10px] text-slate-400">WhatsApp me</p>
           </div>
         </motion.div>
       </motion.div>
