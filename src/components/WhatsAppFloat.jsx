@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MessageCircle } from "lucide-react";
+import { X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { WA } from "../constants/whatsapp";
 
@@ -9,25 +9,24 @@ export default function WhatsAppFloat() {
 
   const options = [
     {
-      label: "💼 Hire Me for a Project",
+      label: "Hire Me for a Project",
       href: WA.hire,
       cls: "bg-emerald-500 hover:bg-emerald-600 text-white",
     },
     {
-      label: "💬 Ask About Services",
+      label: "Ask About Services",
       href: WA.general,
       cls: "bg-white hover:bg-slate-50 text-slate-800 border border-slate-200",
     },
     {
-      label: "📋 Get a Free Quote",
-      href: WA.quoteBase + encodeURIComponent("Hi Sawan! 👋 I'd like to get a free quote for my project."),
+      label: "Get a Free Quote",
+      href: WA.quoteBase + encodeURIComponent("Hi Sawan, I'd like to get a free quote for my project."),
       cls: "bg-white hover:bg-slate-50 text-slate-800 border border-slate-200",
     },
   ];
 
   return (
     <div className="fixed bottom-24 lg:bottom-8 right-4 lg:right-6 z-50 flex flex-col items-end gap-3">
-      {/* Options popup */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -37,9 +36,8 @@ export default function WhatsAppFloat() {
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="flex flex-col gap-2 items-end"
           >
-            {/* Tooltip label */}
             <div className="bg-slate-900 text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap">
-              How can I help? 👇
+              How can I help?
             </div>
 
             {options.map((opt, i) => (
@@ -61,7 +59,7 @@ export default function WhatsAppFloat() {
         )}
       </AnimatePresence>
 
-      {/* Main FAB button */}
+      {/* FAB */}
       <motion.button
         onClick={() => setOpen(o => !o)}
         whileHover={{ scale: 1.08 }}
@@ -87,7 +85,6 @@ export default function WhatsAppFloat() {
           )}
         </AnimatePresence>
 
-        {/* Pulse ring */}
         {!open && (
           <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-30" />
         )}

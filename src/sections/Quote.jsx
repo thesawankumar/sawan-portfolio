@@ -366,7 +366,7 @@ function PricingTabs() {
 
               {/* CTA */}
               <a
-                href={`${WA.quoteBase}${encodeURIComponent(`Hi Sawan! 👋 I'm interested in the "${pkg.name}" package (${pkg.price}). Can we discuss?`)}`}
+                href={`${WA.quoteBase}${encodeURIComponent(`Hi Sawan, I'm interested in the "${pkg.name}" package (${pkg.price}). Can we discuss?`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`mt-5 flex items-center justify-center gap-1.5 text-[12px] font-bold px-4 py-2.5 rounded-xl transition-all duration-200 ${
@@ -414,15 +414,15 @@ export default function Quote() {
     const budgetLabel   = budgets.find(b => b.id === form.budget)?.label || form.budget;
     const timelineLabel = timelines.find(t => t.id === form.timeline)?.label || form.timeline;
 
+    // No emojis — encodeURIComponent handles the rest cleanly
     const msg = encodeURIComponent(
-      `Hi Sawan! 👋 I'd like to get a quote for a project.\n\n` +
-      `📁 *Project Type:* ${typeLabel}\n` +
-      `📝 *Description:* ${form.desc}\n` +
-      `💰 *Budget:* ${budgetLabel}\n` +
-      `⏱ *Timeline:* ${timelineLabel}\n` +
-      `👤 *Name:* ${form.name}\n` +
-      `📞 *Phone:* ${form.phone}\n\n` +
-      `Looking forward to hearing from you!`
+      `Hi Sawan, I'd like to get a quote.\n\n` +
+      `Project: ${typeLabel}\n` +
+      `Details: ${form.desc}\n` +
+      `Budget: ${budgetLabel}\n` +
+      `Timeline: ${timelineLabel}\n` +
+      `Name: ${form.name}\n` +
+      `Phone: ${form.phone}`
     );
 
     window.open(`https://wa.me/919187082916?text=${msg}`, "_blank");
