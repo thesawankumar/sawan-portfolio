@@ -1,48 +1,42 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import CodeRain from "../components/CodeRain";
 import { useState, useEffect, useRef } from "react";
 
-// Lazy-load Vanta only on desktop (saves ~80KB + GPU on mobile)
-let NET = null;
-
 export default function Home() {
-  const [vanta, setVanta] = useState(null);
   const ref = useRef(null);
+  const [vantaLoaded, setVantaLoaded] = useState(false);
   const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
 
   useEffect(() => {
-    if (!isDesktop) return; // skip Vanta on mobile — big perf win
-
+    if (!isDesktop) return;
     let effect = null;
-
     import("vanta/dist/vanta.net.min").then(mod => {
-      NET = mod.default;
       if (ref.current && !effect) {
-        effect = NET({
+        effect = mod.default({
           el: ref.current,
           mouseControls: true,
           touchControls: false,
           gyroControls: false,
-          color: 0x0ea5e9,
+          color: 0x2563eb,        // accent blue
           backgroundColor: 0xffffff,
-          points: 8,        // reduced from 10 — lighter
+          points: 7,
           maxDistance: 18,
-          spacing: 22,
+          spacing: 24,
           scale: 1,
         });
-        setVanta(effect);
+        setVantaLoaded(true);
       }
     });
-
     return () => { if (effect) effect.destroy(); };
   }, []); // eslint-disable-line
 
   return (
-    <section
-      id="home"
-      ref={ref}
-      className="relative min-h-screen flex flex-col bg-white"
-    >
+    <section id="home" ref={ref} className="relative min-h-screen flex flex-col bg-white overflow-hidden">
+
+      {/* Code rain — subtle on desktop, more visible on mobile */}
+      <CodeRain opacity={isDesktop && vantaLoaded ? 0 : 0.28} />
+
       <div className="relative z-20"><Navbar /></div>
 
       <div className="flex-1 flex items-center justify-center z-10 pt-24 pb-16">

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Calendar } from "lucide-react";
+import ParticleCanvas from "../components/ParticleCanvas";
 
 const jobs = [
   {
@@ -36,8 +37,10 @@ const jobs = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 bg-slate-50">
-      <div className="section-wrap">
+    <section id="experience" className="py-24 bg-slate-50 relative overflow-hidden">
+      {/* 3D particle network */}
+      <ParticleCanvas count={50} opacity={0.45} />
+      <div className="relative z-10 section-wrap">
         <motion.div
           initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }} viewport={{ once: true }}
@@ -60,15 +63,15 @@ export default function Experience() {
               className="relative pl-10 pb-10 last:pb-0"
             >
               {/* Dot */}
-              <div className="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-sky-500 border-2 border-white shadow-sm ring-2 ring-sky-100" />
+              <div className="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-accent border-2 border-white shadow-sm ring-2 ring-accent" />
 
               {/* Card */}
-              <div className="card p-5 hover:border-sky-200 transition-colors duration-200">
+              <div className="card p-5 hover:border-accent-md transition-colors duration-200">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
                   <div>
                     <h3 className="text-base font-bold text-slate-900">{job.role}</h3>
-                    <p className="text-sm font-semibold text-sky-600 mt-0.5">{job.company}</p>
+                    <p className="text-sm font-semibold text-accent mt-0.5">{job.company}</p>
                   </div>
                   <div className="flex flex-col sm:items-end gap-1 flex-shrink-0">
                     <span className="flex items-center gap-1 text-[11px] text-slate-500">

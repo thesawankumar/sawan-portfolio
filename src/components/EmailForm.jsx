@@ -26,7 +26,7 @@ export default function EmailForm() {
       .finally(() => setLoading(false));
   };
 
-  const inputCls = "w-full px-4 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition-all duration-200";
+  const inputCls = "w-full px-4 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all duration-200";
 
   return (
     <>

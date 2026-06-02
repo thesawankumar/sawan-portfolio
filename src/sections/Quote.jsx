@@ -21,9 +21,9 @@ const projectTypes = [
 const pricing = [
   {
     service: "🌐 Website Development",
-    color: "border-sky-200",
-    accent: "text-sky-600",
-    bg: "bg-sky-50",
+    color: "border-accent-md",
+    accent: "text-accent",
+    bg: "bg-accent-lt",
     packages: [
       {
         name: "Basic Landing Page",
@@ -266,7 +266,7 @@ const timelines = [
 ];
 
 const inputCls =
-  "w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition-all duration-200";
+  "w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all duration-200";
 
 /* ─── Step indicator ─────────────────── */
 function Steps({ current, total }) {
@@ -276,9 +276,9 @@ function Steps({ current, total }) {
         <div key={i} className="flex items-center gap-2">
           <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
             i < current
-              ? "bg-sky-600 text-white"
+              ? "bg-accent text-white"
               : i === current
-              ? "bg-sky-100 text-sky-700 ring-2 ring-sky-400"
+              ? "bg-accent-md text-accent ring-2 ring-accent"
               : "bg-slate-100 text-slate-400"
           }`}>
             {i < current ? <CheckCircle2 size={14} /> : i + 1}
@@ -431,19 +431,19 @@ export default function Quote() {
 
   const steps = [
     {
-      icon: <FolderOpen size={16} className="text-sky-500" />,
+      icon: <FolderOpen size={16} className="text-accent" />,
       label: "Project Type",
     },
     {
-      icon: <FileText size={16} className="text-sky-500" />,
+      icon: <FileText size={16} className="text-accent" />,
       label: "Description",
     },
     {
-      icon: <DollarSign size={16} className="text-sky-500" />,
+      icon: <DollarSign size={16} className="text-accent" />,
       label: "Budget & Timeline",
     },
     {
-      icon: <User size={16} className="text-sky-500" />,
+      icon: <User size={16} className="text-accent" />,
       label: "Your Details",
     },
   ];
@@ -567,8 +567,8 @@ export default function Quote() {
                               onClick={() => set("type", t.id)}
                               className={`flex flex-col items-start gap-1.5 p-3.5 rounded-xl border text-left transition-all duration-200 ${
                                 form.type === t.id
-                                  ? "border-sky-400 bg-sky-50 ring-1 ring-sky-300"
-                                  : "border-slate-200 hover:border-sky-200 hover:bg-slate-50"
+                                  ? "border-accent bg-accent-lt ring-1 ring-accent"
+                                  : "border-slate-200 hover:border-accent-md hover:bg-slate-50"
                               }`}
                             >
                               <span className="text-xl">{t.icon}</span>
@@ -614,7 +614,7 @@ export default function Quote() {
                         {/* Budget */}
                         <div className="flex flex-col gap-2.5">
                           <p className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-                            <DollarSign size={14} className="text-sky-500" /> Budget range
+                            <DollarSign size={14} className="text-accent" /> Budget range
                           </p>
                           <div className="flex flex-wrap gap-2">
                             {budgets.map(b => (
@@ -623,8 +623,8 @@ export default function Quote() {
                                 onClick={() => set("budget", b.id)}
                                 className={`flex flex-col items-start px-4 py-2.5 rounded-xl border text-left transition-all duration-200 ${
                                   form.budget === b.id
-                                    ? "border-sky-400 bg-sky-50 ring-1 ring-sky-300"
-                                    : "border-slate-200 hover:border-sky-200"
+                                    ? "border-accent bg-accent-lt ring-1 ring-accent"
+                                    : "border-slate-200 hover:border-accent-md"
                                 }`}
                               >
                                 <span className="text-xs font-bold text-slate-800">{b.label}</span>
@@ -637,7 +637,7 @@ export default function Quote() {
                         {/* Timeline */}
                         <div className="flex flex-col gap-2.5">
                           <p className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
-                            <Clock size={14} className="text-sky-500" /> Timeline
+                            <Clock size={14} className="text-accent" /> Timeline
                           </p>
                           <div className="flex flex-wrap gap-2">
                             {timelines.map(t => (
@@ -646,8 +646,8 @@ export default function Quote() {
                                 onClick={() => set("timeline", t.id)}
                                 className={`flex flex-col items-start px-4 py-2.5 rounded-xl border text-left transition-all duration-200 ${
                                   form.timeline === t.id
-                                    ? "border-sky-400 bg-sky-50 ring-1 ring-sky-300"
-                                    : "border-slate-200 hover:border-sky-200"
+                                    ? "border-accent bg-accent-lt ring-1 ring-accent"
+                                    : "border-slate-200 hover:border-accent-md"
                                 }`}
                               >
                                 <span className="text-xs font-bold text-slate-800">{t.label}</span>

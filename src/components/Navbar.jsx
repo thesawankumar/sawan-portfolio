@@ -14,8 +14,8 @@ const NAV = [
 ];
 
 export default function Navbar() {
-  const [open,    setOpen]    = useState(false);
-  const [active,  setActive]  = useState("home");
+  const [open, setOpen]       = useState(false);
+  const [active, setActive]   = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,10 +38,10 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`hidden lg:flex items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-300 ${
+        className={`hidden lg:flex items-center gap-0.5 px-3 py-2 rounded-2xl transition-all duration-300 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md shadow-lg shadow-slate-200/60 border border-slate-200/80"
-            : "bg-white/70 backdrop-blur-sm border border-slate-200/50"
+            ? "bg-white/95 backdrop-blur-md shadow-md shadow-slate-200/80 border border-slate-200"
+            : "bg-white/75 backdrop-blur-sm border border-slate-200/60"
         }`}
       >
         {NAV.map(item => {
@@ -50,14 +50,14 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className={`relative px-4 py-1.5 text-sm font-medium rounded-xl transition-colors duration-200 ${
-                isActive ? "text-sky-600" : "text-slate-600 hover:text-slate-900"
+              className={`relative px-3.5 py-1.5 text-sm font-medium rounded-xl transition-colors duration-200 ${
+                isActive ? "text-accent" : "text-slate-500 hover:text-slate-900"
               }`}
             >
               {isActive && (
                 <motion.span
                   layoutId="nav-bg"
-                  className="absolute inset-0 bg-sky-50 rounded-xl"
+                  className="absolute inset-0 bg-accent-lt rounded-xl border border-accent-md"
                   transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
               )}
@@ -70,11 +70,11 @@ export default function Navbar() {
       {/* Mobile top bar */}
       <div className="lg:hidden w-full flex justify-between items-center px-1">
         <span className="text-lg font-bold text-slate-900">
-          Sawan<span className="text-sky-500">.</span>
+          Sawan<span className="text-accent">.</span>
         </span>
         <button
           onClick={() => setOpen(!open)}
-          className="p-2 rounded-xl bg-white border border-slate-200 shadow-sm"
+          className="p-2 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-accent/30 transition-colors"
           aria-label="Toggle menu"
         >
           {open ? <X size={20} className="text-slate-700" /> : <Menu size={20} className="text-slate-700" />}
@@ -87,18 +87,20 @@ export default function Navbar() {
           <>
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+              className="lg:hidden fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40"
               onClick={() => setOpen(false)}
             />
             <motion.div
               initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="lg:hidden fixed top-0 right-0 h-full w-64 bg-white z-50 shadow-2xl flex flex-col pt-16 px-5 gap-1"
+              className="lg:hidden fixed top-0 right-0 h-full w-64 bg-white z-50 shadow-2xl flex flex-col pt-16 px-5 gap-1 border-l border-slate-100"
             >
               <button onClick={() => setOpen(false)} className="absolute top-4 right-4 p-2 rounded-xl hover:bg-slate-100">
-                <X size={18} className="text-slate-600" />
+                <X size={18} className="text-slate-500" />
               </button>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2 px-2">Menu</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2 px-2">
+                Navigation
+              </p>
               {NAV.map((item, i) => (
                 <motion.a
                   key={item.href}
@@ -109,8 +111,8 @@ export default function Navbar() {
                   transition={{ delay: i * 0.05 }}
                   className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     active === item.href.slice(1)
-                      ? "bg-sky-50 text-sky-600"
-                      : "text-slate-700 hover:bg-slate-50"
+                      ? "bg-accent-lt text-accent border border-accent-md"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                   }`}
                 >
                   {item.label}

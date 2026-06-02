@@ -86,8 +86,8 @@ function FeaturedCard({ item }) {
         <div className="flex flex-col gap-4">
           {/* Eyebrow */}
           <div className="flex items-center gap-2">
-            <Sparkles size={13} className="text-sky-500" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-sky-600">
+            <Sparkles size={13} className="text-accent" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-accent">
               Featured Project
             </span>
           </div>
@@ -109,7 +109,7 @@ function FeaturedCard({ item }) {
                 viewport={{ once: true }}
                 className="flex items-start gap-2 text-[12px] text-slate-600"
               >
-                <span className="mt-1.5 w-1 h-1 rounded-full bg-sky-500 flex-shrink-0" />
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-accent flex-shrink-0" />
                 {pt}
               </motion.li>
             ))}
@@ -210,7 +210,7 @@ function ProjectCard({ item, index }) {
                       initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.1 }}
                       whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.93 }}
-                      className="flex items-center gap-1.5 bg-sky-600 text-white text-[11px] font-bold px-3.5 py-2 rounded-xl shadow-lg"
+                      className="flex items-center gap-1.5 bg-accent text-white text-[11px] font-bold px-3.5 py-2 rounded-xl shadow-lg"
                     >
                       <Github size={12} /> Code
                     </motion.div>
@@ -233,7 +233,7 @@ function ProjectCard({ item, index }) {
                 )}
               </div>
               <motion.div
-                animate={{ rotate: hovered ? 45 : 0, color: hovered ? "#0ea5e9" : "#94a3b8" }}
+                animate={{ rotate: hovered ? 45 : 0, color: hovered ? "#2563eb" : "#94a3b8" }}
                 transition={{ duration: 0.2 }}
                 className="flex-shrink-0 mt-0.5"
               >
@@ -273,8 +273,16 @@ export default function Projects() {
   const rest     = data.filter(p => !p.featured);
 
   return (
-    <section id="projects" className="py-24 bg-white">
-      <div className="section-wrap">
+    <section id="projects" className="py-24 bg-white relative overflow-hidden">
+      {/* Geometric shapes for depth */}
+      <div className="bg-geo">
+        <div className="geo-shape" />
+        <div className="geo-shape" />
+        <div className="geo-shape" />
+        <div className="geo-shape" />
+        <div className="geo-shape" />
+      </div>
+      <div className="relative z-10 section-wrap">
 
         {/* Heading */}
         <motion.div

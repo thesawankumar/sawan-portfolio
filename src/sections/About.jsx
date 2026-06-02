@@ -3,13 +3,14 @@ import { MapPin, Mail, ArrowUpRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { WA } from "../constants/whatsapp";
+import RingCanvas from "../components/RingCanvas";
 
 const WA_LINK = WA.about;
 
 const highlights = [
   { value: "3",    label: "Internships" },
   { value: "500+", label: "DSA Solved"  },
-  { value: "5+",   label: "Projects"    },
+  { value: "3+",   label: "Projects"    },
   { value: "7.87", label: "CGPA"        },
 ];
 
@@ -23,8 +24,10 @@ const focus = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-slate-50">
-      <div className="section-wrap">
+    <section id="about" className="py-24 bg-slate-50 relative overflow-hidden">
+      {/* 3D Rotating rings background */}
+      <RingCanvas opacity={0.55} />
+      <div className="relative z-10 section-wrap">
 
         <motion.div
           initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +73,7 @@ export default function About() {
                   transition={{ delay: i * 0.07 }} viewport={{ once: true }}
                   className="flex flex-col items-center bg-white border border-slate-100 rounded-2xl py-3 shadow-sm"
                 >
-                  <span className="text-xl font-extrabold text-sky-600">{h.value}</span>
+                  <span className="text-xl font-extrabold text-accent">{h.value}</span>
                   <span className="text-[10px] text-slate-500 font-medium mt-0.5 text-center">{h.label}</span>
                 </motion.div>
               ))}
@@ -84,7 +87,7 @@ export default function About() {
                 { label: "LeetCode", href: "https://leetcode.com/thesawankumar" },
               ].map(l => (
                 <Link key={l.href} to={l.href} target="_blank"
-                  className="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-sky-600 transition-colors"
+                  className="flex items-center gap-1 text-[11px] font-semibold text-slate-500 hover:text-accent transition-colors"
                 >
                   {l.label} <ArrowUpRight size={10} />
                 </Link>
@@ -123,7 +126,7 @@ export default function About() {
                     key={i}
                     initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }} viewport={{ once: true }}
-                    className="flex items-start gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 shadow-sm hover:border-sky-200 hover:shadow-md transition-all duration-200"
+                    className="flex items-start gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 shadow-sm hover:border-accent-md hover:shadow-md transition-all duration-200"
                   >
                     <span className="text-xl flex-shrink-0 mt-0.5">{f.icon}</span>
                     <div>
@@ -138,13 +141,13 @@ export default function About() {
             {/* Contact row */}
             <div className="flex flex-wrap gap-3 text-[13px] text-slate-500 pt-1">
               <a href="mailto:sawankushwaha249@gmail.com"
-                className="flex items-center gap-1.5 hover:text-sky-600 transition-colors"
+                className="flex items-center gap-1.5 hover:text-accent transition-colors"
               >
-                <Mail size={13} className="text-sky-500" />
+                <Mail size={13} className="text-accent" />
                 sawankushwaha249@gmail.com
               </a>
               <span className="flex items-center gap-1.5">
-                <MapPin size={13} className="text-sky-500" />
+                <MapPin size={13} className="text-accent" />
                 Bengaluru, Karnataka
               </span>
               {/* WhatsApp quick contact */}

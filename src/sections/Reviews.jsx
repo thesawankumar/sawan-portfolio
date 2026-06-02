@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { WA } from "../constants/whatsapp";
+import WaveCanvas from "../components/WaveCanvas";
 
 const reviews = [
   {
@@ -34,7 +35,7 @@ const reviews = [
     name: "Tech Lead (Sreeram A M)",
     role: "MELE (Make Engineer's Life Easy)",
     avatar: "SM",
-    avatarBg: "bg-sky-100 text-sky-700",
+    avatarBg: "bg-accent-md text-accent",
     rating: 5,
     text: "Sawan's AWS deployment work reduced our server costs by 30% while achieving 99.9% uptime. His code optimization improved load times by 35%. A reliable engineer who takes ownership of his work.",
     project: "Cloud Infrastructure",
@@ -61,8 +62,10 @@ const cardVariants = {
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="py-24 bg-white">
-      <div className="section-wrap">
+    <section id="reviews" className="py-24 bg-slate-50 relative overflow-hidden">
+      {/* 3D Wave grid */}
+      <WaveCanvas opacity={0.5} />
+      <div className="relative z-10 section-wrap">
 
         {/* Heading */}
         <motion.div
@@ -113,7 +116,7 @@ export default function Reviews() {
               </p>
 
               {/* Project tag */}
-              <span className="text-[10px] font-bold uppercase tracking-wider text-sky-600 bg-sky-50 border border-sky-100 px-2.5 py-1 rounded-md w-fit">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-accent bg-accent-lt border border-accent-md px-2.5 py-1 rounded-md w-fit">
                 {r.project}
               </span>
 

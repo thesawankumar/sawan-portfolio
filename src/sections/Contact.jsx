@@ -19,8 +19,8 @@ const channels = [
     highlight: true,
   },
   {
-    icon: <Mail size={17} className="text-sky-600" />,
-    iconBg: "bg-sky-50 border-sky-200",
+    icon: <Mail size={17} className="text-accent" />,
+    iconBg: "bg-accent-lt border-accent-md",
     label: "Email",
     value: "sawankushwaha249@gmail.com",
     sub: "Within 24 hours",
@@ -80,7 +80,7 @@ function QuickMessage() {
         className="w-full flex items-center justify-between px-5 py-4 text-sm font-bold text-slate-800 hover:bg-slate-50 transition-colors"
       >
         <span className="flex items-center gap-2">
-          <Send size={15} className="text-sky-500" />
+          <Send size={15} className="text-accent" />
           Send a quick message
         </span>
         {open ? <ChevronUp size={15} className="text-slate-400" /> : <ChevronDown size={15} className="text-slate-400" />}
@@ -101,14 +101,14 @@ function QuickMessage() {
                 placeholder="Your name"
                 value={name}
                 onChange={e => setName(e.target.value)}
-                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition-all"
+                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all"
               />
               <textarea
                 rows={3}
                 placeholder="What would you like to discuss?"
                 value={msg}
                 onChange={e => setMsg(e.target.value)}
-                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition-all resize-none"
+                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent transition-all resize-none"
               />
               <p className="text-[11px] text-slate-400">
                 This will open your email client with the message pre-filled.
@@ -132,8 +132,12 @@ function QuickMessage() {
 /* ── Main section ── */
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-slate-50">
-      <div className="section-wrap">
+    <section id="contact" className="py-24 bg-slate-50 relative overflow-hidden">
+      {/* Moving orbs */}
+      <div className="bg-orbs" />
+      {/* Gradient pulse */}
+      <div className="bg-contact-anim" />
+      <div className="relative z-10 section-wrap">
 
         {/* Heading */}
         <motion.div
@@ -176,7 +180,7 @@ export default function Contact() {
                     key={i}
                     initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.07 }} viewport={{ once: true }}
-                    className="flex items-start gap-2.5 bg-white border border-slate-100 rounded-xl p-3.5 shadow-sm hover:border-sky-200 hover:shadow-md transition-all duration-200"
+                    className="flex items-start gap-2.5 bg-white border border-slate-100 rounded-xl p-3.5 shadow-sm hover:border-accent-md hover:shadow-md transition-all duration-200"
                   >
                     <span className="text-lg flex-shrink-0">{s.emoji}</span>
                     <div>
@@ -191,11 +195,11 @@ export default function Contact() {
             {/* Meta */}
             <div className="flex flex-col gap-2.5">
               <div className="flex items-center gap-2 text-[12px] text-slate-500">
-                <Clock size={13} className="text-sky-500 flex-shrink-0" />
+                <Clock size={13} className="text-accent flex-shrink-0" />
                 Avg. response: <strong className="text-slate-700 ml-1">under 24 hours</strong>
               </div>
               <div className="flex items-center gap-2 text-[12px] text-slate-500">
-                <MapPin size={13} className="text-sky-500 flex-shrink-0" />
+                <MapPin size={13} className="text-accent flex-shrink-0" />
                 Bengaluru, Karnataka, India
               </div>
             </div>
@@ -250,7 +254,7 @@ export default function Contact() {
                     <span className="hidden sm:block text-[10px] text-slate-400">{ch.sub}</span>
                     <ArrowUpRight
                       size={15}
-                      className="text-slate-300 group-hover:text-sky-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                      className="text-slate-300 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                     />
                   </div>
                 </motion.a>

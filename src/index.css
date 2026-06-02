@@ -1,72 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: "Inter", system-ui, sans-serif;
-    scroll-behavior: smooth;
-  }
-  body {
-    @apply bg-white text-slate-800 antialiased;
-  }
+  html { font-family: "Inter", system-ui, sans-serif; scroll-behavior: smooth; }
+  body { @apply bg-white text-slate-800 antialiased; }
 }
 
 @layer components {
-  /* ── Section wrapper ── */
-  .section-wrap {
-    @apply max-w-5xl mx-auto px-6 lg:px-8;
-  }
+  /* ── Layout ── */
+  .section-wrap { @apply max-w-5xl mx-auto px-6 lg:px-8; }
 
-  /* ── Section label (eyebrow) ── */
+  /* ── Eyebrow label ── */
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-sky-600 mb-4;
+    @apply inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-accent mb-4;
   }
 
   /* ── Section title ── */
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold text-slate-900 leading-tight;
-  }
+  .section-title { @apply text-3xl md:text-4xl font-bold text-slate-900 leading-tight; }
 
-  /* ── Divider line ── */
-  .title-line {
-    @apply w-12 h-1 bg-sky-500 rounded-full mt-3 mb-10;
-  }
+  /* ── Accent underline ── */
+  .title-line { @apply w-12 h-1 bg-accent rounded-full mt-3 mb-10; }
 
-  /* ── Card ── */
+  /* ── Cards ── */
   .card {
-    @apply bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300;
+    @apply bg-white rounded-2xl border border-slate-200/70
+           shadow-sm hover:shadow-md hover:border-accent/20
+           transition-all duration-300;
   }
 
-  /* ── Primary button ── */
+  /* ── Buttons ── */
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply inline-flex items-center gap-2
+           bg-accent hover:bg-accent-dk
+           text-white text-sm font-semibold
+           px-5 py-2.5 rounded-xl
+           shadow-sm hover:shadow-glow-sm
+           transition-all duration-200;
   }
-
-  /* ── Ghost button ── */
   .btn-ghost {
-    @apply inline-flex items-center gap-2 border border-slate-200 hover:border-sky-400 text-slate-700 hover:text-sky-600 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200;
+    @apply inline-flex items-center gap-2
+           border border-slate-200 hover:border-accent
+           text-slate-600 hover:text-accent
+           text-sm font-semibold
+           px-5 py-2.5 rounded-xl
+           transition-all duration-200;
   }
 
   /* ── Tag pill ── */
   .tag {
-    @apply text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-600;
+    @apply text-[11px] font-semibold px-2.5 py-0.5 rounded-md
+           bg-accent-lt text-accent border border-accent-md;
   }
 
   /* ── Gradient text ── */
   .gradient-text {
-    @apply bg-gradient-to-r from-sky-500 to-indigo-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent;
   }
+
+  /* ── Active / highlight states ── */
+  .active-link { @apply text-accent bg-accent-lt; }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 5px; }
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #f8fafc; }
-::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #1d4ed8; }
 
-/* Selection */
-::selection { background: rgba(14,165,233,0.15); color: #0c2d57; }
-
-/* Fira Code for code-like elements */
-.font-mono { font-family: "Fira Code", monospace; }
+/* ── Selection ──────────────────────────────────────────────── */
+::selection { background: rgba(37,99,235,0.12); color: #1e3a6e; }

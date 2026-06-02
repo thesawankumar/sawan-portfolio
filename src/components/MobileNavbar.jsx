@@ -47,14 +47,14 @@ export default function MobileNavbar() {
               {on && (
                 <motion.span
                   layoutId="mob-pill"
-                  className="absolute inset-0 bg-sky-50 rounded-xl"
+                  className="absolute inset-0 bg-accent-lt rounded-xl"
                   transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
               )}
-              <span className={`relative z-10 transition-colors duration-200 ${on ? "text-sky-600" : "text-slate-500"}`}>
+              <span className={`relative z-10 transition-colors duration-200 ${on ? "text-accent" : "text-slate-500"}`}>
                 {item.icon}
               </span>
-              <span className={`relative z-10 text-[9px] font-semibold transition-colors duration-200 ${on ? "text-sky-600" : "text-slate-400"}`}>
+              <span className={`relative z-10 text-[9px] font-semibold transition-colors duration-200 ${on ? "text-accent" : "text-slate-400"}`}>
                 {item.label}
               </span>
             </a>

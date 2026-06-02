@@ -18,8 +18,16 @@ const edu = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 bg-white">
-      <div className="section-wrap">
+    <section id="education" className="py-24 bg-white relative overflow-hidden">
+      {/* 3D geometric rotating shapes */}
+      <div className="bg-geo">
+        <div className="geo-shape" />
+        <div className="geo-shape" />
+        <div className="geo-shape" />
+        <div className="geo-shape" />
+        <div className="geo-shape" />
+      </div>
+      <div className="relative z-10 section-wrap">
         <motion.div
           initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }} viewport={{ once: true }}
@@ -54,7 +62,7 @@ export default function Education() {
               {/* Body */}
               <div className="p-5 flex flex-col gap-1.5">
                 <div className="flex items-start gap-2">
-                  <GraduationCap size={16} className="text-sky-500 mt-0.5 flex-shrink-0" />
+                  <GraduationCap size={16} className="text-accent mt-0.5 flex-shrink-0" />
                   <h3 className="text-sm font-bold text-slate-800 leading-snug">{item.degree}</h3>
                 </div>
                 <p className="text-xs text-slate-500 font-medium pl-6">{item.school}</p>

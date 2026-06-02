@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { data1, data2, data3 } from "../constants/skillsData";
+import WaveCanvas from "../components/WaveCanvas";
 
 const bp = {
   320:  { slidesPerView: 3,   spaceBetween: 10 },
@@ -13,7 +14,7 @@ const bp = {
 
 function SkillChip({ item }) {
   return (
-    <div className="flex flex-col items-center gap-2 bg-white border border-slate-100 rounded-xl px-3 py-3.5 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-sky-200 transition-all duration-200 cursor-default group w-20 lg:w-24">
+    <div className="flex flex-col items-center gap-2 bg-white border border-slate-100 rounded-xl px-3 py-3.5 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-accent-md transition-all duration-200 cursor-default group w-20 lg:w-24">
       <img
         src={item.imgSrc}
         alt={item.label}
@@ -58,8 +59,10 @@ const rows = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-slate-50">
-      <div className="section-wrap">
+    <section id="skills" className="py-24 bg-slate-50 relative overflow-hidden">
+      {/* 3D Wave grid background */}
+      <WaveCanvas opacity={0.65} />
+      <div className="relative z-10 section-wrap">
         <motion.div
           initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }} viewport={{ once: true }}
